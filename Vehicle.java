@@ -29,6 +29,12 @@ public class Vehicle {
         return true;
     }
 
+    public void updateBattery (int battery){
+        this.batteryLeft = battery;
+    }
+
+
+
 
 
 
