@@ -10,7 +10,7 @@ public enum VehicleState{
 
 public class Vehicle {
     public int id;
-    public String type;
+    public int type;
     public VehicleState state;
     public int batteryLeft;
     public List damage = new ArrayList();
