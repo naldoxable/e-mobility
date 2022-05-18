@@ -57,4 +57,8 @@ public class Client {
     public void noteProblem(){
         //some code as a list of problems
     }
+
+    public int getId(){
+        return this.id;
+    }
 }
