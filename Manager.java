@@ -8,6 +8,8 @@ public class Manager {
     //clienti in una lista?
     List clients = new ArrayList();
 
+    List rentalList = new ArrayList();
+
     //static variable reference of single_instance of type Singleton
     private static Singleton single_instance = null;
 
@@ -42,3 +44,13 @@ public class Manager {
         clients.remove(index);
     }
 }
+
+    private addRent(Client c, Vehicle v){
+        r = new Rental(c.getId(), v.getId());
+        this.rentalList.add(r);
+        if (!this.clients.contains(c))
+            this.clients.add(c);
+        v.updateState(VehicleState.OCCUPED);
+    }
+
+
