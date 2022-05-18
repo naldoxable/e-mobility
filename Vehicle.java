@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Date
 
 public enum VehicleState{
     FREE,
@@ -9,24 +10,36 @@ public enum VehicleState{
 
 
 public class Vehicle {
-    public int id;
-    public int type;
-    public VehicleState state;
-    public int batteryLeft;
-    public List damage = new ArrayList();
-    public String lastUse;
+    int id;
+    int type;
+    VehicleState state;
+    int batteryLeft;
+    List damage = new ArrayList();
+    String lastUse;
+    int maxBattery;
+    Date lastUse;
 
 
-    public Vehicle(int id, String type, VehicleState state){
+    public Vehicle(int id, int type){
         this.id = id;
         this.type = type;
-        this.state = state;
+        if (this.type == 0){ //monopattino
+            this.maxBattery = 25;
+        } else if(this.type==1){ //bicicletta
+            this.maxBattery = 50;
+        } else if (this.type==2){ //motorino
+            this.maxBattery = 75;
+        }
+        this.state = VehicleState.FREE;
     }
 
-    public boolean updateState(VehicleState newState){
+    private boolean updateState(VehicleState newState){
         this.state = newState;
-        System.out.println("State modified in: "+newState);
         return true;
+    }
+
+    public int getId{
+        return this.id;
     }
 
     public void updateBattery (int battery){
