@@ -13,6 +13,7 @@ public class Rental {
         this.userId = userId;
         this.vehicleId = vehicleId;
         this.dateStart = //qualche metodo per gestione date
+        this.id += 1; //ogni noleggio ha id diverso
     }
 
     public boolean rentStop(){
