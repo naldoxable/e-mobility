@@ -8,7 +8,6 @@ public enum VehicleState{
     DAMAGED;
 }
 
-
 public class Vehicle {
     int id;
     int type;
@@ -46,14 +45,20 @@ public class Vehicle {
         this.batteryLeft = battery;
     }
 
+    public int getType() {
+        return type;
+    }
 
+    public void setType(int type) {
+        this.type = type;
+    }
 
+    public VehicleState getState() {
+        return state;
+    }
 
-
-
-
-
-
-
+    public int getBatteryLeft() {
+        return batteryLeft;
+    }
 
 }
