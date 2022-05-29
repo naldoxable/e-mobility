@@ -11,8 +11,11 @@ public class Rental {
     public int elapsedKM;
     LocalDateTime dateStart;
     LocalDateTime dateEnd;
+    Vehicle v;
 
     public Rental(int userId, int vehicleId){
+        v = v.getVehicleById(this.vehicleId);
+        v.state = VehicleState.OCCUPED;
         this.userId = userId;
         this.vehicleId = vehicleId;
         this.dateStart = LocalDateTime.now();
@@ -20,6 +23,7 @@ public class Rental {
     }
 
     public boolean rentStop(){
+        v.state = VehicleState.FREE;
         this.dateEnd = LocalDateTime.now();
         return true;
     }
