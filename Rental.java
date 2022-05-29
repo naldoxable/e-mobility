@@ -1,5 +1,6 @@
-import java.util.Date
-import java.time.LocalDateTime
+import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 public class Rental {
@@ -11,7 +12,7 @@ public class Rental {
     LocalDateTime dateStart;
     LocalDateTime dateEnd;
 
-    public Rental(userId, vehicleId){
+    public Rental(int userId, int vehicleId){
         this.userId = userId;
         this.vehicleId = vehicleId;
         this.dateStart = LocalDateTime.now();
@@ -19,13 +20,14 @@ public class Rental {
     }
 
     public boolean rentStop(){
-        this.dateEnd = LocalDateTime.now()
+        this.dateEnd = LocalDateTime.now();
+        return true;
     }
 
-    public void addDamage(string damage){
+    public void addDamage(String damage){
         damages.add(damage);
 
     }
 
-
 }
+

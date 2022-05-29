@@ -1,7 +1,8 @@
-import java.io.*;
-import java.util.Date
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-public enum VehicleState{
+enum VehicleState{
     FREE,
     OCCUPED,
     MAINTENANCE,
@@ -14,9 +15,9 @@ public class Vehicle {
     VehicleState state;
     int batteryLeft;
     List damage = new ArrayList();
-    String lastUse;
     int maxBattery;
     Date lastUse;
+    List<Vehicle> vehicles = new ArrayList<Vehicle>();
 
 
     public Vehicle(int id, int type){
@@ -24,10 +25,13 @@ public class Vehicle {
         this.type = type;
         if (this.type == 0){ //monopattino
             this.maxBattery = 25;
+            this.batteryLeft = maxBattery;
         } else if(this.type==1){ //bicicletta
             this.maxBattery = 50;
+            this.batteryLeft = maxBattery;
         } else if (this.type==2){ //motorino
             this.maxBattery = 75;
+            this.batteryLeft= maxBattery;
         }
         this.state = VehicleState.FREE;
     }
@@ -37,8 +41,17 @@ public class Vehicle {
         return true;
     }
 
-    public int getId{
+    public int getId(){
         return this.id;
+    }
+
+    public Vehicle getVehicleById(int id){
+        for (Vehicle v : vehicles){
+            if (v.getId() == id)
+                return v;
+        }
+        System.out.println("Il veicolo cercato non è presente");
+        return null;
     }
 
     public void updateBattery (int battery){
