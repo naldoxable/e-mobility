@@ -9,12 +9,18 @@ enum VehicleState{
     DAMAGED;
 }
 
+enum Damages {
+    wheelFailure,
+    engineFailure,
+    chassisFailure;
+}
+
 public class Vehicle {
     int id;
     int type;
     VehicleState state;
     int batteryLeft;
-    List damage = new ArrayList();
+    List damages = new ArrayList();
     int maxBattery;
     Date lastUse;
     List<Vehicle> vehicles = new ArrayList<Vehicle>();
@@ -52,6 +58,10 @@ public class Vehicle {
         }
         System.out.println("Il veicolo cercato non è presente");
         return null;
+    }
+
+    public void addDamage(Damages d){
+        damages.add(d);
     }
 
     public void updateBattery (int battery){
