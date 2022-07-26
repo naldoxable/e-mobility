@@ -22,6 +22,7 @@ public class Vehicle {
     int batteryLeft;
     List damages = new ArrayList();
     int maxBattery;
+    int caution;
     Date lastUse;
     List<Vehicle> vehicles = new ArrayList<Vehicle>();
 
@@ -32,12 +33,15 @@ public class Vehicle {
         if (this.type == 0){ //monopattino
             this.maxBattery = 25;
             this.batteryLeft = maxBattery;
+            this.caution = 5;
         } else if(this.type==1){ //bicicletta
             this.maxBattery = 50;
             this.batteryLeft = maxBattery;
+            this.caution = 3;
         } else if (this.type==2){ //motorino
             this.maxBattery = 75;
             this.batteryLeft= maxBattery;
+            this.caution = 10;
         }
         this.state = VehicleState.FREE;
     }

@@ -22,9 +22,22 @@ public class Rental {
         this.id += 1; //ogni noleggio ha id diverso
     }
 
+    public boolean rentStart(int vehicleId){
+        //Vehicle v = v.getVehicleById(vehicleId);
+        if (v.getState() == FREE){
+            v.updateState(OCCUPED)
+            return true;
+        }
+        else {
+            print("Vehicle is occupied or You are already renting a vehicle!")
+            return false;
+        }
+    }
+
     public boolean rentStop(){
         v.state = VehicleState.FREE;
         this.dateEnd = LocalDateTime.now();
+        print("Do you want to note a problem?");
         return true;
     }
 
